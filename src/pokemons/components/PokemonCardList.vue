@@ -8,9 +8,7 @@ defineProps<Props>()
 </script>
 <template>
     <div class="card-list">
-
         <PokemonCard v-for="pokemon of $props.pokemons" :key="pokemon.id" :pokemon="pokemon"/>
-
     </div>
 </template>
 <style lang="scss" scoped>
@@ -19,5 +17,6 @@ defineProps<Props>()
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
+        justify-content: center;    
     }
 </style>

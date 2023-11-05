@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, watchEffect } from 'vue'
 import { useQuery } from "@tanstack/vue-query";
 
 import { getPokemons } from '../helpers/getPokemons';
@@ -13,7 +13,13 @@ export const usePokemons = () => {
     const { isLoading, data:pokemons, isError, error} = useQuery({
       queryKey: ['pokemons'],
       queryFn: getPokemons,
+      retry: 1,
     })
+
+    watchEffect(() => {
+      // console.log('pokemons', isLoading.value);
+      
+    });
 
 
     return {
@@ -25,3 +31,7 @@ export const usePokemons = () => {
         count: computed(()=> pokemons.value?.length ?? 0)
     }
 }
+
+// function watchEffect(arg0: () => void) {
+// throw new Error('Function not implemented.');
+// }

@@ -1,4 +1,3 @@
-import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -7,6 +6,11 @@ import App from './App.vue'
 import router from './router'
 
 import { VueQueryPlugin, type QueryObserverOptions } from "@tanstack/vue-query";
+// import store from '@/storeVue/store';
+
+import './assets/main.css'
+
+// store.startLoadingPokemons()
 
 
 const app = createApp(App)

@@ -33,5 +33,8 @@ const { count, pokemons, isLoading, isError, error } = usePokemons()
 <style lang="scss" scoped>
     .card-list-container {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 </style>

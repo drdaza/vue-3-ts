@@ -21,6 +21,12 @@ export const pokemonRoute: RouteRecordRaw = {
             component: () => import('@/pokemons/views/PokemonList.vue')
         },
         {
+            path: `/${ROUTE_NAME}/list-native`,
+            props: {title: 'Pokemons List Native'},
+            name: 'pokemonListNative',
+            component: () => import('@/pokemons/views/PokemonListNative.vue')
+        },
+        {
             path: `/${ROUTE_NAME}/search`,
             props: {title: 'Pokemons search'},
             name: 'pokemonSearch',

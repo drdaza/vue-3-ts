@@ -8,6 +8,8 @@ import type { Pokemon, PokemonListResponse, PokemonResponse } from "../interface
 export const getPokemons = async (): Promise<Pokemon[]> => {
 
     // await sleep(3)
+
+    // throw new Error ('Error de prueba')
     
     const { data } = await pokemonApi.get<PokemonListResponse>('/pokemon?limit=151')
         // .then((response) => {
