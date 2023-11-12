@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // import { COUNTER_VIEW } from '@/router/routes'
 import type { RouterLink } from '@/router/routes';
+import { computed } from 'vue';
 // Forma de declarar props con interfaces y el define props
 interface interfaceProps {
   title?: string,
@@ -14,6 +15,8 @@ const props = withDefaults( defineProps<interfaceProps>(),
   links: () => [],
   isSecondary: false
 });
+
+const visibleLinks = computed( () => props.links.filter(link => link.visible))
 // Forma de declarar props como un objeto donde defino sus atriburos directamente en el defineProps
 // const props = defineProps({
 //   title: {
@@ -34,11 +37,19 @@ const props = withDefaults( defineProps<interfaceProps>(),
           <span>{{title}}</span>
         </template>
         
-        <RouterLink v-for="link of props.links" 
+          <RouterLink  
+          v-for="link of visibleLinks" :key="link.name"
+          :to="link.path">
+          {{ link.title }}
+          </RouterLink>
+        <!-- <template v-for="link of props.links" :key="link.name" >
+          <RouterLink v-if="link.visible" 
           :key="link.name" 
           :to="link.path">
           {{ link.title }}
-        </RouterLink>
+          </RouterLink>
+        </template> -->
+        
         <!-- <RouterLink to="/about">About</RouterLink> -->
         <!-- <RouterLink :to="COUNTER_VIEW.path">{{COUNTER_VIEW.title}}</RouterLink> -->
         

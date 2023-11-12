@@ -1,13 +1,13 @@
 import pokemonApi from "../api/pokemonApi";
 import axios from 'axios'
-// import { sleep } from './sleep'
+import { sleep } from './sleep'
 // import type { Pokemon } from "../interfaces/pokemon";
 // import type { PokemonListResponse } from "../interfaces/pokemonList.response";
 import type { Pokemon, PokemonListResponse, PokemonResponse } from "../interfaces";
 
 export const getPokemons = async (): Promise<Pokemon[]> => {
 
-    // await sleep(3)
+    await sleep(3)
 
     // throw new Error ('Error de prueba')
     

@@ -7,11 +7,13 @@ import { pokemonRoute } from '../router';
 let routerLinks: RouterLink[]
 
 routerLinks = pokemonRoute.children?.map(({name, path, props}) => {
+    const {title, visible} = props as { title: string, visible: boolean}
     const routeToReturn: RouterLink = 
     {
         name: name?.toString() ?? '', 
         path, 
-        title: (props as {title: string}).title
+        title,
+        visible
     }
     return routeToReturn
 }) || []
